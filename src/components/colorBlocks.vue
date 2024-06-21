@@ -1,9 +1,12 @@
 <template>
   <view class="flex h-5 items-center gap-2 overflow-x-auto hidden-scrollbar">
     <view
-      v-for="item in props.data"
-      :key="item"
-      class="w-4 h-4 rounded-1 shrink-0"
+      v-for="(item, index) in props.data"
+      :key="index"
+      class="w-3 h-3 rounded-1 shrink-0"
+      :class="{
+        active: props.active === index,
+      }"
       :style="{
         backgroundColor: item,
       }"
@@ -14,6 +17,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   data: string[]
+  active: number
 }>()
 </script>
 
@@ -24,5 +28,9 @@ const props = defineProps<{
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.active {
+  @apply h-4 w-4;
 }
 </style>

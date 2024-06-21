@@ -1,13 +1,5 @@
 // @import './iconfont.css';
 
-.test {
-  // 可以通过 @apply 多个样式封装整体样式
-  @apply mt-4 ml-4;
-
-  padding-top: 4px;
-  color: red;
-}
-
 :root,
 page {
   // 修改按主题色
@@ -15,4 +7,15 @@ page {
 
   // 修改按钮背景色
   // --wot-button-primary-bg-color: green;
+  --wd-fab-trigger-width: 100rpx;
+  --wd-fab-trigger-height: 100rpx;
+  --wot-segmented-padding: 4rpx;
+}
+
+.wd-fab__icon {
+  font-size: 60rpx !important;
+}
+.wd-fab__trigger {
+  color: #fff !important;
+  background: #353b49 !important;
 }
