@@ -63,12 +63,13 @@ function debounce(func, delay) {
   return function () {
     clearTimeout(timer)
     timer = setTimeout(() => {
+      // @ts-expect-error this and arguments are available in the callback
       func.apply(this, arguments)
     }, delay)
   }
 }
 
-const backInitPos = debounce((index: number) => {
+const backInitPos: (i: number) => void = debounce((index: number) => {
   cardStatus.value[index].x = cardStatus.value[index].x ? 0 : 1
   if (!cardStatus.value[index].outbound) return
   cardStatus.value[index].zIndex = cardStatus.value[index].zIndex - cardStatus.value.length

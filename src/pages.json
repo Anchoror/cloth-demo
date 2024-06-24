@@ -47,6 +47,15 @@
       }
     },
     {
+      "path": "pages/detail/detail",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "详情"
+      }
+    },
+    {
       "path": "pages/my/my",
       "type": "page",
       "style": {

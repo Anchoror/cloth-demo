@@ -1,5 +1,9 @@
 <template>
-  <view class="w-100% relative z-10 overflow-hidden" ref="viewRef" :style="{ height: viewHeight }">
+  <view
+    class="w-100% relative z-10 overflow-hidden transition-all-400"
+    ref="viewRef"
+    :style="{ height: viewHeight }"
+  >
     <template v-for="(item, index) in props.list" :key="item.id">
       <view class="transition-all-400" :style="styleArr[index]">
         <wd-transition :show="props.filterList.includes(item)" name="zoom-in">

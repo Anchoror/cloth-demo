@@ -21,8 +21,10 @@
       inactiveIcon="service"
       :zIndex="10000"
       :gap="{
-        top: 40,
-        bottom: 20,
+        top: 150,
+        right: 16,
+        bottom: 100,
+        left: 16,
       }"
     >
       <view
@@ -49,15 +51,11 @@ import { useQueue } from 'wot-design-uni'
 const { safeAreaInsets } = uni.getSystemInfoSync()
 const { closeOutside } = useQueue()
 
-console.log(closeOutside)
-
 const themeVars: ConfigProviderThemeVars = {
   // colorTheme: 'red',
   // buttonPrimaryBgColor: '#07c160',
   // buttonPrimaryColor: '#07c160',
 }
-
-uni.hideTabBar()
 
 const onMobile = () => {
   console.log('mobile')

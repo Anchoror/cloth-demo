@@ -9,7 +9,10 @@
 </route>
 <template>
   <searchHeader />
-  <view class="sticky z-100" :style="{ top: menuRect.height + menuRect.top + padbottom + 'px' }">
+  <view
+    class="sticky z-100 overflow-hidden transition-all"
+    :style="{ top: menuRect.height + menuRect.top + padbottom + 'px', height: tabHeight + 'rpx' }"
+  >
     <wd-row custom-class="flex items-center bg-white" :gutter="4">
       <wd-col :span="18">
         <wd-tabs v-model="tabValue" @change="onTabChange">
@@ -34,7 +37,13 @@
   </view>
 
   <view class="list mt-4">
-    <transitionTable :col="segValue" :list="list" :filter-list="fliterList" :gap="20">
+    <transitionTable
+      :col="segValue"
+      :list="list"
+      :filter-list="fliterList"
+      :gap="20"
+      @on-card-model="onCardModel"
+    >
       <template #default="{ data }">
         <msgCard :data="data" />
       </template>
@@ -75,6 +84,7 @@ const segments = ref([
 ])
 
 const tabs = ref(['全部', '新品', '推荐', '热门'])
+const tabHeight = ref(84) // tab栏高度rpx
 
 const list = ref(
   new Array(33).fill(0).map((item, index) => ({
@@ -96,6 +106,12 @@ const onTabChange = ({ index, name }) => {
     fliterList.value = list.value.filter((item) => item.type === name)
   }
 }
+
+const onCardModel = (status) => {
+  // tabHeight.value = status ? 0 : 84
+}
+
+uni.hideTabBar()
 </script>
 
 <style lang="scss" scoped></style>
