@@ -25,6 +25,10 @@ scroll-view {
   overflow: hidden;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 image {
   width: 100%;
   height: 100%;
